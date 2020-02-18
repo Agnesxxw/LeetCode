@@ -1,2 +1,5 @@
-# LeetCode-Notes
-LeetCode Notes by tags
+# LeetCode Notes
+
+## FIRST TIME
+## TOP 300 IN SEQUENCE
+## FRESHMAN BUT LOVE CODING
