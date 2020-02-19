@@ -1,7 +1,7 @@
 # DSA Python
 
 
-##1. 图灵机 计算模型 Turling Machine
+## 1. 图灵机 计算模型 Turling Machine
 > * 无限长的纸带： 每个格子 记录1个符号
 > * 来回移动得读写头： 读写和擦除
 > * 状态寄存器： 记录有限状态中的1个状态
@@ -9,25 +9,25 @@
 eg：< S0,a,B,Si,R >
 eg：Visual Turling
 
-##2. 算法和计算复杂性
+## 2. 算法和计算复杂性
 ### 2.1 计算复杂性
 > * 计算时间
 > * 存储空间
 > * 可行性
 
-##3. 数据抽象 ADT
+## 3. 数据抽象 ADT
 > * 只有功能 描述 和功能实现的接口（不用管功能是如何实现的）
 > * 封装 可以把处理数据的细节隐藏起来
 > * 采用程序设计语言的控制结构和基本数据类型来实现ADT所提供的逻辑接口 属于ADT得物理层次
 > * ADT实现逻辑（like复杂的数据模型 可以保持稳定）与物理层次（可以持续改进）的分离
 
-##4.算法分析
+## 4.算法分析
 **算法->底层实现得研究**
 > * 存储空间或内存
 > * 执行时间
 time模块
 
-###4.1 大O记号
+### 4.1 大O记号
 **Upperbound （所有的上限中，最小的那个上限，用得最多）**
 数量级函数：T（n）中增加速度最快的部分 O（n）（主导的部分）
 eg：5n^2+7n=1005 ->O(n^2)
@@ -50,11 +50,11 @@ eg：子集的划分：NP——complete：就目前的计算模型而言，不�
 <center>**复杂度综述：
 O(2<sup>n</sup>)>O(n<sup>3</sup>)>O(n<sup>2</sup>)>O(nlogn)>O(n)>O(logn)>O(1)**</center>
 
-###4.2 大Omega记号
+### 4.2 大Omega记号
 **所有下限中最大的下限**
-###4.3 大Theta记号
+### 4.3 大Theta记号
 **上下限相等的情况下，可以用大Theta**
-###4.4 “变为词”判断问题
+### 4.4 “变为词”判断问题
 包含相同的字母但是顺序不一样（长度相等）
 1. 把第一个词中的逐个在第二个里面检查，打勾 O(n^2)
 2. 排序比较，按照字母顺序排序，比较
@@ -77,7 +77,7 @@ pop(i)  O(n)
 >* reverse O(n)
 ……
 
-####4.5.2 dict
+#### 4.5.2 dict
 >* 取值 赋值 d[k]=v   O(1)
 判断是否存在  O(1)
 
@@ -88,13 +88,13 @@ https://wiki.python.org/moin/TimeComplexity
 >* 前后 左右 上底
 **关键的是添加减少数据项的方式，不同的的方式构成了以下四种强大的结构**
 
-###5.1 Stack 栈
+### 5.1 Stack 栈
 >* 数据想的加入和一处都尽发生在同一端（栈顶 top），另一端叫做栈底（base）。like：盘子，书堆
 >* 后进先出 LIFO，时间越短离top越近，越长离base越近。反转次序
 >* 调用接口就可以实现
 
 将ADT Stack实现为Python的一个Class，将ADT Stack的操作实现为Class的方法
-####5.1.1 **基本操作：**
+#### 5.1.1 **基本操作：**
 1. Stack（）:创建一个空栈，不包含任何数据项
 2. push（item）：将item加入栈顶，无返回值
 3. pop（）：将栈顶数据项移除，并返回所移除的值，栈被修改
@@ -131,7 +131,7 @@ myStack.peek()
 #另一种实现
 #将list首段设为栈顶和将list末端设为栈顶。栈顶首段的版本（左边）push/pop的复杂度为O(n)，而栈顶尾端的实现（右边），其push/pop的复杂度为O(1)。就是前面讲的insert()，insert(i)区别
 ```
-####5.1.2 应用
+#### 5.1.2 应用
 dfs stack 深度优先搜索 
 
 ##### 1. 简单括号匹配
@@ -305,7 +305,7 @@ def doCal(num1,opt, num2):
     return result
 ```
 
-###5.2 Queue 队列
+### 5.2 Queue 队列
 （bfs queue 广度优先）
 #### 5.2.1 基本操作
 >* 新数据项的添加总在一端（rear尾端），移除总在另一端（front首端）
@@ -429,8 +429,8 @@ def simulation (numSeconds, pagesPerMinite): #模拟时间，打印机模式 5 p
     averageWait = sum(waitingtime) / len(waitingtime)
     print("Average waiting time is : %6.2f secs %3d tasks remaining"%(averageWait,printQueue.size()))
 ```
-###5.3 Deque 双端队列
-####5.3.1 基本操作：
+### 5.3 Deque 双端队列
+#### 5.3.1 基本操作：
 >* 两端都可以看作是“首”，“尾”；数据项可以从两端加入或移出（相当于集合了栈和队列的能力，但是不是具有内在的LIFO/FIFO）
 >* 函数：（**左边是队尾，右边是队首**）
 1. Deque():创建空双端序列
@@ -440,8 +440,8 @@ def simulation (numSeconds, pagesPerMinite): #模拟时间，打印机模式 5 p
 5. removeRear():从队尾移除，返回移除数据项 O(n)
 6. isEmpty():是否为空
 7. size():返回包含数据项个数
-####5.3.2 应用
-#####1. 回文词判断
+#### 5.3.2 应用
+##### 1. 回文词判断
 >* 将判断的词加入双端队列
 >* 从两端同时移除字符判定是否相同，直到队列中剩下0 or 1个字符
 ```python
@@ -460,7 +460,7 @@ def palchecker(nums):
             return False
 print(palchecker('abcdefedcb'))
 ```
-###5.4 List 列表
+### 5.4 List 列表
 #### 5.4.1 单链表基本操作
 >* 一种数据项按照相对位置存放的数据集
 >* 函数：
@@ -574,14 +574,14 @@ def remove(self,item):
 10. pop():删除末尾  O(1)
 11. pop(pos)：删除指定位置 O(n)
 >* 实现
-#####1. head
+##### 1. head
 ```python
 class UnorderedList:
     def __init__(self):
         self.head = None #空表
 ```
-#####2. isEmpty/size/remove 和无序表一样
-#####3. search
+##### 2. isEmpty/size/remove 和无序表一样
+##### 3. search
 ```python
 
 def search(self, item):
@@ -598,7 +598,7 @@ def search(self, item):
                 current = current.getNext()
     return found
 ```
-#####4.add
+##### 4.add
 ```python
 def add(self,item):
     current = self.head
@@ -622,8 +622,8 @@ def add(self,item):
 和python内置列表（顺序存储）的时间复杂度不同
 ### 5.5 线性结构的小结
 
-##6. 递归 Recursion
-###6.1 基本操作
+## 6. 递归 Recursion
+### 6.1 基本操作
 >* 分解为小的非常简单的相同方法，然后在算法流程中调用自身
 
 eg: 数列和 = 首个数 + 余下数列
@@ -640,8 +640,8 @@ def listsum(numlist):
 3. 调用自身来解决规模减小的问题
 
 
-###6.2 应用
-####1. 任意进制转换
+### 6.2 应用
+#### 1. 任意进制转换
 ```python
 def toStr(n,base):
     convertString = "0123456789ABCDEF"
@@ -650,7 +650,7 @@ def toStr(n,base):
     else:
         return toStr(n // base, base) + convertString[n % base] #哪里调用就返回哪里
 ```
-####2. 汉诺塔：（移动盘子，大盘子不能在小盘子上面）
+#### 2. 汉诺塔：（移动盘子，大盘子不能在小盘子上面）
 >* n个盘子，上面n-1个盘子移到中间柱子
 >* n-1个盘子，上面n-2个盘子移到中间柱子
 >* 最小规模问题：1个盘片（结束条件）
@@ -666,7 +666,7 @@ def move(n,a,b,c):
 move(3,"A","B","C")
 
 ```
-####3. 探索迷宫
+#### 3. 探索迷宫
 >* 整个迷宫看成方格，判断每个方格是墙壁还是路 ——> 看成矩阵，墙壁‘+’，投放点S
 ```python
 import turtle
@@ -905,7 +905,7 @@ print('The used list is as follows:')
 print(coinsUsed)
 ```
 
-###6.3 递归调用的实现
+### 6.3 递归调用的实现
 >* 现场数据压入系统调用栈，用栈帧恢复现场（调用次序和返回次序是相反的）
 >* 深度限制：
 1. 是否忘记设置基本结束条件，导致无限递归
@@ -1009,7 +1009,7 @@ for i in range(1,len(tr)): # 每前i个物品
 			m[(i, w)] = max(m[(i-1, w)], tr[i]['v'] + m[(i-1, w - tr[i]['w'])])
 print(m[(len(tr) - 1, max_w)])
 ```
-###6.5 递归小结
+### 6.5 递归小结
 >* 解决具有自相似问题的有效方法
 >* **三定律**
 >* 某些问题递归可以代替迭代
@@ -1241,14 +1241,14 @@ Hash Table
 3. body：实际的数据
 4. 工作量证明（POW）
 ### 8.2 散列函数的设计
-####1. 折叠法
+#### 1. 折叠法
 隔数反转（微调手段）
 适合key较多位的情况
-####2. 平方取中
+#### 2. 平方取中
 eg： 44^2 = 1936
 98 % 11 = 5
 计算量较大
-####3. 非数项
+#### 3. 非数项
 抓换成ASCII码
 ```python
 def hash(astring, tableSize):
@@ -1300,7 +1300,7 @@ def hash(astring, tableSize):
 >* 散列表可以实现常数级时间的查找
 >* 完美散列函数作为数据一致性校验，应用广泛
 
-##9. 树
+## 9. 树
 >* 层次化的，越接近顶部的，越普遍，越底部的越独特
 >* 一个节点的子节点和另外几个节点的子节点相互之间时隔离的，独立的
 >* 每个叶节点都具有独特性
@@ -1586,7 +1586,7 @@ def postOrderCal(tree):
 >* size():返回堆中key个数
 >* buildHeap(list):从一个key列表创建新堆
 
-#####2. 保持二叉树的平衡
+##### 2. 保持二叉树的平衡
 
 >* 完全二叉树结构来近似实现“平衡”：叶节点最多只出现在底层和次底层，而且最底层的叶节点都连续集中在最左边，每个内部节点都有两个子节点，最多可以右1个节点例外
 （若设⼆叉树的⾼度为h，除第 h 层外，其它各层 (1～h-1) 的结点数都达到最⼤个数，第h层有叶⼦结点，并且叶⼦结点都是从左到右依次排布，这就是完全⼆叉树。）
@@ -1594,7 +1594,7 @@ def postOrderCal(tree):
 节点：P；左子节点：2P；右子节点：2P+1；父节点：p//2
 >* 堆次序：任何一条path都是一条排序的数列，根节点的key最小
 
-#####3. 实现
+##### 3. 实现
 
 >* 二叉堆初始化：
 ```python
